@@ -32,9 +32,45 @@ I want my statement to show date, amount and balance
 
 ## Design
 
-Account Class
-Transaction Class
-Statement Class
+- Account Class - Stores all transactions for an account
+                - Allows a debit or credit to be raised against the account. This creates a transaction and adds it to the transaction list.
+- Transaction Class - Stores details of an individual transaction
+                    - Is called by the account when a new transaction is needed.
+- Statement Class - Manages the printing of the statement of a given account
+                  - Can be passed an account as an argument which it can itreate through to generate a statement.
+
+## Installation
+
+Clone this repository
+```
+bundle install
+rspec #Check all tests green
+irb #Run the app from IRB
+```
+
+## Sample use
+
+```
+2.5.1 :001 > require './account'
+ => true
+2.5.1 :002 > require './statement'
+ => true
+2.5.1 :003 > require './transaction'
+ => true
+2.5.1 :004 > account = Account.new
+ => #<Account:0x00007fae0c8a2750 @transactions=[]>
+2.5.1 :005 > account.credit(10.00)
+ => [#<Transaction:0x00007fae0c879ee0 @date="03/11/2019", @debit=0, @credit=10.0>]
+2.5.1 :006 > account.credit(10.00)
+ => [#<Transaction:0x00007fae0c879ee0 @date="03/11/2019", @debit=0, @credit=10.0>, #<Transaction:0x00007fae0c882248 @date="03/11/2019", @debit=0, @credit=10.0>]
+2.5.1 :007 > account.debit(5.00)
+ => [#<Transaction:0x00007fae0c879ee0 @date="03/11/2019", @debit=0, @credit=10.0>, #<Transaction:0x00007fae0c882248 @date="03/11/2019", @debit=0, @credit=10.0>, #<Transaction:0x00007fae0c8765d8 @date="03/11/2019", @debit=5.0, @credit=0>]
+2.5.1 :008 > statement = Statement.new
+ => #<Statement:0x00007fae0b0802a8>
+2.5.1 :009 > statement.printout(account)
+ => "   DATE       ||   CREDIT   ||   DEBIT   ||   BALANCE   \n  03/11/2019  ||      10.00||          0.00||    10.00\n  03/11/2019  ||      10.00||          0.00||    20.00\n  03/11/2019  ||      0.00||          5.00||    15.00\n"
+2.5.1 :011 >
+```
 
 =========================
 Bank tech test
