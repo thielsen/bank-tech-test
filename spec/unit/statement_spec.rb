@@ -1,7 +1,7 @@
 require_relative '../../lib/statement'
 
 RSpec.describe 'statement' do
-  it 'prints out the template when given no transactions' do
+  it 'prints out the template correctly' do
     statement = Statement.new
     account_dbl = double
     allow(account_dbl).to receive(:transactions).and_return([])

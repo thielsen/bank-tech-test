@@ -12,10 +12,12 @@ RSpec.describe Account do
   it 'allows a credit' do
     @account.credit(100.01)
     expect(@account.transactions[0].credit).to eq 100.01
+    expect(@account.transactions[0].date).to eq Date.today.strftime('%m/%d/%Y')
   end
 
   it 'allows a debit' do
     @account.debit(100.01)
     expect(@account.transactions[0].debit).to eq 100.01
+    expect(@account.transactions[0].date).to eq Date.today.strftime('%m/%d/%Y')
   end
 end
