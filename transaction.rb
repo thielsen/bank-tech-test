@@ -1,12 +1,12 @@
 require 'date'
 
 class Transaction
-  attr_reader :type, :amount, :date
+  attr_reader :date, :credit, :debit
 
   def initialize(type, amount, date=Date.today)
-    @type = type
-    @amount = amount
-    @date = date
+    @date = date.strftime('%m/%d/%Y')
+    @credit = amount if type == 'credit'
+    @debit = amount if type == 'debit'
   end
-  
+
 end
