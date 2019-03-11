@@ -1,13 +1,30 @@
 class Statement
-  STATEMENT_HEADER = "#{sprintf('%14s', 'DATE')} ||#{sprintf('%14s', 'CREDIT')} ||#{sprintf('%14s', 'DEBIT')} ||#{sprintf('%14s', 'BALANCE')}\n"
+  STATEMENT_HEADER = "          DATE ||" +
+                     "        CREDIT ||" +
+                     "         DEBIT ||" +
+                     "       BALANCE\n"
 
   def printout(account)
     balance = 0
     output = STATEMENT_HEADER
     account.transactions.each do |transaction|
-      output += "#{sprintf('%14s', transaction.date)} ||#{sprintf('%14.2f', transaction.credit)} ||#{sprintf('%14.2f', transaction.debit)} ||#{sprintf('%14.2f', (balance + transaction.credit - transaction.debit))}\n"
-      balance += transaction.credit - transaction.debit
+      transaction_total = transaction.credit - transaction.debit
+      output += "#{format_text(transaction.date)} ||" +
+                "#{format_currency(transaction.credit)} ||" +
+                "#{format_currency(transaction.debit)} ||" +
+                "#{format_currency(balance + transaction_total)}\n"
+      balance += transaction_total
     end
     output
+  end
+
+private
+
+  def format_currency(input)
+    sprintf('%14.2f', input)
+  end
+
+  def format_text(input)
+    sprintf('%14s', input)
   end
 end
