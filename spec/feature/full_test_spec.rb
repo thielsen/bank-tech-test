@@ -9,6 +9,6 @@ RSpec.describe 'deposit money' do
     account.credit(2000.00, Date.new(2012, 01, 13))
     account.debit(500.00, Date.new(2012, 01, 14))
     statement = Statement.new
-    expect(statement.printout(account)).to eq "   DATE       ||   CREDIT   ||   DEBIT   ||   BALANCE   \n  01/10/2012  ||      1000.00||          0.00||    1000.00\n  01/13/2012  ||      2000.00||          0.00||    3000.00\n  01/14/2012  ||      0.00||          500.00||    2500.00\n"
+    expect(statement.printout(account)).to eq "          DATE ||        CREDIT ||         DEBIT ||       BALANCE\n    01/10/2012 ||       1000.00 ||          0.00 ||       1000.00\n    01/13/2012 ||       2000.00 ||          0.00 ||       3000.00\n    01/14/2012 ||          0.00 ||        500.00 ||       2500.00\n"
   end
 end
