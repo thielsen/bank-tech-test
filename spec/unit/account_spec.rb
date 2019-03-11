@@ -8,6 +8,6 @@ RSpec.describe 'Account' do
   it 'allows a deposit' do
     account = Account.new()
     account.deposit(100.01)
-    expect(account.balance).to eq 100.01
+    expect(account.transactions).to be_an Array
   end
 end
