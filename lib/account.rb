@@ -1,5 +1,5 @@
 class Account
-  attr_reader :balance, :transactions
+  attr_reader :transactions
 
   def initialize
     @transactions = []

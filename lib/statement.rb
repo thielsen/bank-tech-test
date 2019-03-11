@@ -9,16 +9,19 @@ class Statement
     output = STATEMENT_HEADER
     account.transactions.each do |transaction|
       transaction_total = transaction.credit - transaction.debit
-      output += "#{format_text(transaction.date)} ||" +
-                "#{format_currency(transaction.credit)} ||" +
-                "#{format_currency(transaction.debit)} ||" +
-                "#{format_currency(balance + transaction_total)}\n"
+      output += statement_line(transaction.date, transaction.credit, 
+                               transaction.debit, (balance + transaction_total))
       balance += transaction_total
     end
     output
   end
 
 private
+
+  def statement_line(date, credit, debit, balance)
+    "#{format_text(date)} ||#{format_currency(credit)} ||" +
+    "#{format_currency(debit)} ||#{format_currency(balance)}\n"
+  end
 
   def format_currency(input)
     sprintf('%14.2f', input)
