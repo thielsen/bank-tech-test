@@ -26,7 +26,11 @@ As a bank customer
 So I have the details of my account
 I want my statement to show date, amount and balance
 ```
+### Design
 
+Account Class
+Transaction Class
+Statement Class
 
 
 
