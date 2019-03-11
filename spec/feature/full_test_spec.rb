@@ -1,5 +1,5 @@
-require './account'
-require './statement'
+require_relative '../../lib/statement'
+require_relative '../../lib/account'
 
 RSpec.describe 'deposit money' do
 

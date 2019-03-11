@@ -1,4 +1,4 @@
-require './statement'
+require_relative '../../lib/statement'
 
 RSpec.describe 'statement' do
   it 'prints out the template when given no transactions' do

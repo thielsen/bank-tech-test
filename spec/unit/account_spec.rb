@@ -1,4 +1,4 @@
-require './account'
+require_relative '../../lib/account'
 
 RSpec.describe Account do
   before(:each) do

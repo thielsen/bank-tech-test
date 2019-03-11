@@ -1,4 +1,4 @@
-require './transaction'
+require_relative '../../lib/transaction'
 
 RSpec.describe 'transaction' do
   it 'can create new deposit transaction' do
