@@ -8,4 +8,5 @@ class Transaction
     @amount = amount
     @date = date
   end
+  
 end

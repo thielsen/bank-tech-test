@@ -1,46 +1,42 @@
-## Tech test - Bank
+# Tech test - Bank
 
-### Summary
+## Summary
 
 This is a tech test at Makers Academy, week 11. The goal is to create a simple bank application allowing deposit, withdrawal and printing to the specifications below.
 
-### User stories
+## User stories
 
 ```
 As a bank customer
 So I can add to me account
 I want to be able to deposit money
 ```
+
 ```
 As a bank customer
 So I can spend my money
 I want to be able to withdraw money
 ```
+
 ```
 As a bank customer
 So I can see how much money I have
 I want to be able to print a statement
 ```
+
 ```
 As a bank customer
 So I have the details of my account
 I want my statement to show date, amount and balance
 ```
-### Design
+
+## Design
 
 Account Class
 Transaction Class
 Statement Class
 
-
-
-
-
-
-
-
-
-
+=========================
 Bank tech test
 
 Today, you'll practice doing a tech test.
