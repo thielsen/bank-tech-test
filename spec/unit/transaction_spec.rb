@@ -6,4 +6,9 @@ RSpec.describe 'transaction' do
     expect(transaction.type).to eq 'deposit'
     expect(transaction.amount).to eq 100.01
   end
+  it 'can create new withdrawal transaction' do
+    transaction = Transaction.new('withdraw', 99.09)
+    expect(transaction.type).to eq 'withdraw'
+    expect(transaction.amount).to eq 99.09
+  end
 end

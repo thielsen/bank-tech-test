@@ -6,4 +6,9 @@ RSpec.describe 'deposit money' do
     account.deposit(100.01)
     expect(account.transactions).to be_an Array
   end
+  it 'allows us to withdraw from our account' do
+    account = Account.new()
+    account.withdraw(99.09)
+    expect(account.transactions).to be_an Array
+  end
 end
