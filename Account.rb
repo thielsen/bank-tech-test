@@ -2,17 +2,16 @@ class Account
   attr_reader :balance, :transactions
 
   def initialize()
-    @balance =  0
     @transactions = []
   end
 
-  def deposit(amount)
-    transaction = Transaction.new('deposit', amount)
+  def credit(amount, date=Date.today)
+    transaction = Transaction.new('credit', amount, date)
     @transactions.push(transaction)
   end
 
-  def withdraw(amount)
-    transaction = Transaction.new('withdraw', amount)
+  def debit(amount, date=Date.today)
+    transaction = Transaction.new('debit', amount, date)
     @transactions.push(transaction)
   end
 

@@ -2,15 +2,21 @@ require './account'
 
 RSpec.describe 'Account' do
 
-  it 'starts with 0' do
+  it 'starts with no transactions' do
     account = Account.new()
-    expect(account.balance).to eq 0
+    expect(account.transactions).to eq []
   end
 
-  it 'allows a deposit' do
+  it 'allows a credit' do
     account = Account.new()
-    account.deposit(100.01)
-    expect(account.transactions).to be_an Array
+    account.credit(100.01)
+    expect(account.transactions[0].credit).to eq 100.01
   end
-  
+
+  it 'allows a debit' do
+    account = Account.new()
+    account.debit(100.01)
+    expect(account.transactions[0].debit).to eq 100.01
+  end
+
 end
