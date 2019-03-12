@@ -3,6 +3,7 @@ require_relative '../../lib/account'
 RSpec.describe Account do
   before(:each) do
     @account = described_class.new
+    Timecop.freeze(Date.today)
   end
 
   it 'starts with no transactions' do

@@ -1,6 +1,10 @@
 require_relative '../../lib/transaction'
 
 RSpec.describe 'transaction' do
+  before(:each) do
+    Timecop.freeze(Date.today)
+  end
+
   it 'can create new deposit transaction' do
     transaction = Transaction.new('credit', 100.01)
     expect(transaction.credit).to eq 100.01
